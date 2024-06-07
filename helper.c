@@ -19,7 +19,7 @@ form *gen_forms(int delta, int num, int *ct)
     for (int i = s; i <= e && count < num; i++)
     {
         int a = i;
-        for (int j = (-1)*a; j <= abs(a) && count < num; j++)
+        for (int j = (-1)*(a-1); j <= abs(a) && count < num; j++)
         {
             int b = j;
             int c = pow(b, 2) - delta;
@@ -166,7 +166,7 @@ int normalized(form *c_form)
     {
         r = (int)num;
     }
-    printf("\nHELLO: num = %.2f r = %d\n", num, r);
+    // printf("\nHELLO: num = %.2f r = %d\n", num, r);
 
     c_form->b = b + 2 * r * a;
     c_form->c = (a * r * r) + (b * r) + c;

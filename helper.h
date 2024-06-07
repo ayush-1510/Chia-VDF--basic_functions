@@ -22,11 +22,14 @@ typedef struct
     int second;
 } Pair;
 
-int gcd(int a, int b);
+form *gen_forms(int delta, int num, int *ct);
 Pair extended_gcd(int a, int b);
+form principal_form(int delta);
+int gcd(int a, int b);
 int solve_congruence(int a, Pair *x, int b, int m);
 int composed(form *a_form, form *b_form, form *c_form);
 int normalized(form *c_form);
 int reduced(form *c_form);
+int squared(form *c_form);
 
 #endif

@@ -8,7 +8,8 @@
 #include <stdint.h>
 #include <string.h>
 #include <math.h>
-
+#include <stdbool.h>
+#include <stdbool.h>
 typedef struct
 {
     int a;
@@ -31,5 +32,6 @@ int composed(form *a_form, form *b_form, form *c_form);
 int normalized(form *c_form);
 int reduced(form *c_form);
 int squared(form *c_form);
+bool isSquareFree(int n);
 
 #endif

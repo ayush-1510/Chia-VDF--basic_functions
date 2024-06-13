@@ -3,16 +3,26 @@
 int32_t main()
 {
     srand(time(NULL));
-    int delta;
-    printf("Enter the value of delta(less than 0): ");
-    scanf("%d", &delta);
+    int delta, d;
+    printf("Enter the Integer and square free value of d for binary quadratic forms (positive, preferably prime): ");
+    scanf("%d", &d);
+    delta = -d;
+    printf("Delta = %d\n", delta);
     if (delta >= 0)
     {
         printf("Error: Delta must be less than 0.\n");
         return 1;
     }
-    else
-        printf("Using delta: %d\n", delta);
+    else if ((delta % 4)+4 == 2 || (delta % 4)+4 == 3)
+    {
+        printf("Error: Delta must be congruent to 0 or 1 modulo 4.\n");
+        return 1;
+    }
+    else if (!isSquareFree(d))
+    {
+        printf("Error: Delta must be square free.\n");
+        return 1;
+    }
 
     // form p_form = principal_form(delta);
     int num;

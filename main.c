@@ -70,6 +70,7 @@ int32_t main()
     while (reduced(&c_form));
 
     printf("\nReduced form: (%d, %d, %d)", c_form.a, c_form.b, c_form.c);
+    printf("\nInverse of form: (%d, %d, %d)", c_form.a, -c_form.b, c_form.c);
 
     // SQUARING
     if (squared(&c_form))
@@ -83,6 +84,9 @@ int32_t main()
     // REDUCTION
     while (reduced(&c_form));
     printf("\nReduced form after squaring: (%d, %d, %d)", c_form.a, c_form.b, c_form.c);
+
+    // INVERSE
+    printf("\nInverse of form after squaring: (%d, %d, %d)", c_form.a, -c_form.b, c_form.c);
 
     return 0;
 }

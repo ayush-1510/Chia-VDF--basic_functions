@@ -88,5 +88,23 @@ int32_t main()
     // INVERSE
     printf("\nInverse of form after squaring: (%d, %d, %d)", c_form.a, -c_form.b, c_form.c);
 
+    // EXPONENTIATION
+    int n;
+    form temp;
+    printf("\nEnter the values (a, b, c) for the form whose exponent you want to calculate: ");
+    scanf("%d %d %d", &temp.a, &temp.b, &temp.c);
+    printf("Enter the exponent for this form: ");
+    scanf("%d", &n);
+    if (pow_n(&temp, n))
+    {
+        printf("\nFAILED Exponentiation");
+        return 0;
+    }
+    else
+    {
+        reduced(&temp);
+        printf("\nForm after exponentiation: (%d, %d, %d)", temp.a, temp.b, temp.c);
+    }
+
     return 0;
 }

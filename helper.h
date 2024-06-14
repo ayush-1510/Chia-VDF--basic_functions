@@ -33,5 +33,6 @@ int normalized(form *c_form);
 int reduced(form *c_form);
 int squared(form *c_form);
 bool isSquareFree(int n);
+int pow_n(form *f, int n);
 
 #endif

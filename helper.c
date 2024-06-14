@@ -125,9 +125,9 @@ int composed(form *a_form, form *b_form, form *c_form)
     if (solve_congruence(t * k_temp.second, &n_temp, h - t * k_temp.first, s)) // 2, n, -2, 1 --->>> n.first=0 and n.second=1
         return 1;
 
-    int temp;
-    printf("Choose any integer value of n' for n = a + b * n':  "); // preferably 0
-    scanf("%d", &temp);
+    int temp = 0;
+    // printf("Choose any integer value of n' for n = a + b * n':  "); // preferably 0
+    // scanf("%d", &temp);
 
     int n = n_temp.first + n_temp.second * temp; // if n' = 0 then n = 0 + 0 = 0
 
@@ -240,4 +240,33 @@ bool isSquareFree(int n)
     }
 
     return true;
+}
+
+int pow_n(form *f, int n)
+{
+    int a = f->a;
+    int b = f->b;
+    int c = f->c;
+
+    int delta = pow(b,2)-(4*a*c);
+    int k = abs(delta) % 2;
+    form res = {1, k, ((k * k) - delta) / 4};
+
+    form temp = *f;
+    for (int i = 0; i < 32; i++)
+    {
+        if (n & (1 << i))
+        {
+            form check;
+            composed(&res, &temp, &check);
+            reduced(&check);
+            res = check;
+        }
+        squared(&temp);
+        reduced(&temp);
+    }
+
+    *f = res;
+
+    return 0;
 }
